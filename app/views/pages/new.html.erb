@@ -1,0 +1,18 @@
+<h2>Nueva Entrada</h2>
+<%= form_with model: @character, method: :post do |form| %>
+    <div>
+        <%= form.label :name, "Nombre "%>
+        <%= form.text_field :name%>
+    </div>
+    <div>
+        <%= form.label :location, "Localizacion "%>
+        <%= form.text_field :location %>
+    </div>
+    <div>
+        <%= form.label :house, "Casa "%>
+        <%= form.text_field :house %>
+    </div>
+    <div>
+        <%= form.submit "Submit" %>
+    </div>
+<% end %>

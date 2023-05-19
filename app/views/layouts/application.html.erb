@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li><%= link_to "Lista", pages_index_path %></li>
+        <li><%= link_to "Nuevo", pages_new_path %></li>
+        <li><%= link_to "Buscar", search_path %></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>
