@@ -1,0 +1,7 @@
+<h1>Harry Potter App</h1>
+<% Character.all.each do |e| %>
+    <hr>
+    <p><strong>Personaje:</strong> <%= e.name %></p>
+    <p><strong>Localización:</strong></strong> <%= e.location %></p>
+    <p><strong>Casa:</strong> <%= e.house %></p>
+<% end %>
