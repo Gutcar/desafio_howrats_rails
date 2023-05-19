@@ -1,16 +1,28 @@
-<h2>Elige que quieres buscar</h2>
-<br>
-<% entrada = params[:query] %>
-<%= form_with url: search_path, method: 'get' do |form| %>
-  <%= form.text_field :query, value: entrada %>
-  <%= form.select :field, options_for_select([['Nombre', 'name'], ['Localizacion', 'location'], ['Casa', 'house']], params[:field]), prompt: 'Selecciona un campo' %>
-  <%= form.submit "Buscar" %>
-<% end %>
-<br>
-<% if entrada.present? %>
-    <% @search_results.each do |e| %>
-        <p><strong>Personaje:</strong> <%= e.name %></p>
-        <p><strong>Localización:</strong></strong> <%= e.location %></p>
-        <p><strong>Casa:</strong> <%= e.house %></p>
+<div class="row">
+    <div class="col-4">
+        <h2>Elige que quieres buscar</h2>
+        <% entrada = params[:query] %>
+        <%= form_with url: search_path, method: 'get' do |form| %>
+          <%= form.text_field :query, value: entrada, class: "form-control" %>
+          <%= form.select :field, options_for_select([['Nombre', 'name'], ['Localizacion', 'location'], ['Casa', 'house']], params[:field]), prompt: 'Selecciona un campo', class: "form-select" %>
+          <%= form.submit "Buscar", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>
+<div class="row">
+    <% if entrada.present? %>
+      <% @search_results.each do |e| %>
+          <div class="col-4">
+              <ul class="list-group">
+                  <li class="list-group-item"><strong>Nombre: </strong><%= e.name %></li>
+                  <li class="list-group-item"><strong>Localizacion: </strong><%= e.location %></li>
+                  <li class="list-group-item"><strong>Casa: </strong><%= e.house %></li>
+              </ul>
+          </div>
+      <% end %>
     <% end %>
-<% end %>
+</div>
+
+<br>
+
+<br>

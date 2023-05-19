@@ -1,18 +1,20 @@
-<h2>Nueva Entrada</h2>
-<%= form_with model: @character, method: :post do |form| %>
-    <div>
-        <%= form.label :name, "Nombre "%>
-        <%= form.text_field :name, required: true%>
+<div class="row">
+    <div class="col-4">
+        <h2>Nueva Entrada</h2>
+        <%= form_with model: @character, method: :post do |form| %>
+            <div class="mb-3">
+                <%= form.label :name, "Nombre ", class: "form-label"%>
+                <%= form.text_field :name, required: true, class: "form-control"%>
+            </div>
+            <div class="mb-3">
+                <%= form.label :location, "Localizacion ", class: "form-label"%>
+                <%= form.text_field :location, required: true, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= form.label :house, "Casa ", class: "form-label"%>
+                <%= form.text_field :house, required: true, class: "form-control" %>
+            </div>
+            <%= form.submit "Submit", class: "btn btn-primary" %>
+        <% end %>
     </div>
-    <div>
-        <%= form.label :location, "Localizacion "%>
-        <%= form.text_field :location, required: true %>
-    </div>
-    <div>
-        <%= form.label :house, "Casa "%>
-        <%= form.text_field :house, required: true %>
-    </div>
-    <div>
-        <%= form.submit "Submit" %>
-    </div>
-<% end %>
+</div>
